@@ -34,4 +34,4 @@ Beeper: (13, 1) 1
 Beeper: (13, 2) 1
 Karel: (1, 1) east
 BeeperBag: INFINITE
-Speed: 0,00
+Speed: 0.00

@@ -13,4 +13,4 @@ Wall: (6, 4) west
 Beeper: (6, 3) 1
 Karel: (3, 4) east
 BeeperBag: INFINITE
-Speed: 0,00
+Speed: 0.00
