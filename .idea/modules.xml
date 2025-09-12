@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HW1_Hella/HW1_Hella.iml" filepath="$PROJECT_DIR$/HW1_Hella/HW1_Hella.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2_Hella/HW2_Hella.iml" filepath="$PROJECT_DIR$/HW2_Hella/HW2_Hella.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW3_Hella/HW3_Hella.iml" filepath="$PROJECT_DIR$/HW3_Hella/HW3_Hella.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NaUKMAJava.iml" filepath="$PROJECT_DIR$/.idea/NaUKMAJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PW1_Hella/PW1_Hella.iml" filepath="$PROJECT_DIR$/PW1_Hella/PW1_Hella.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PW2_Hella/PW2_Hella.iml" filepath="$PROJECT_DIR$/PW2_Hella/PW2_Hella.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PW3_Hella/PW3_Hella.iml" filepath="$PROJECT_DIR$/PW3_Hella/PW3_Hella.iml" />
+    </modules>
+  </component>
+</project>

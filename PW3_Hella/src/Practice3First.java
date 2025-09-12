@@ -5,15 +5,24 @@ public class Practice3First extends SuperKarel {
 	public void run() {
         pickUpBeeper();
         while(frontIsClear()) {
-            rowSurfing();
+            seekForBeeper();
+            toTheStartOfTheColumn();
+            columnSurfing();
             if(leftIsClear()){
                 newLevelRoam();
-                toTheStartOfTheRow();
+                toTheStartOfTheColumn();
             }
         }
         pickUpBeeper();
     }
-    private void toTheStartOfTheRow() { // moves to the start of the row
+    private void seekForBeeper(){ // Karel goes through the column and picks up all the beepers
+        while(frontIsClear()){
+            move();
+            pickUpBeeper();
+        }
+        turnAround();
+    }
+    private void toTheStartOfTheColumn() { // moves to the start of the column
         while (frontIsClear()) {
             pickUpBeeper();
             move();
@@ -27,7 +36,7 @@ public class Practice3First extends SuperKarel {
         pickUpBeeper();
         turnLeft();
     }
-    private void rowSurfing() { //surfing through a row and looking for an exit
+    private void columnSurfing() { //surfing through a column and looking for an exit
         while(leftIsBlocked()) {
             move();
             pickUpBeeper();
@@ -36,7 +45,7 @@ public class Practice3First extends SuperKarel {
             }
         }
     }
-    private void pickUpBeeper(){   //shortage of picking up beeper
+    private void pickUpBeeper(){   // shortage for picking up beeper
         if(beepersPresent()){
             pickBeeper();
         }
