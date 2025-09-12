@@ -5,16 +5,37 @@ public class Homework3First extends SuperKarel {
 	public void run() {
         while(frontIsClear()) {
             surfingRow();
-            rowRoaming();
+            if (leftIsClear()) {
+                rowRoaming();
+            }
+            else {
+                break;
+            }
             surfingRow();
-            mirroredRowRoaming();
+            //mirroredSurfingRow();
+            if (rightIsClear()) {
+                mirroredRowRoaming();
+            }
+            else{
+                break;
+            }
         }
 
     }
     private void surfingRow() {
         while(frontIsClear()) {
-            move();
             putBeeper();
+            move();
+            if(frontIsBlocked()) {
+                break;
+            }
+            move();
+        }
+    }
+    private void mirroredSurfingRow() {
+        while(frontIsClear()) {
+            putBeeper();
+            move();
             if(frontIsBlocked()) {
                 break;
             }

@@ -3,6 +3,14 @@ import stanford.karel.SuperKarel;
 public class Homework2Second extends SuperKarel {
 
 	public void run() {
+        while(frontIsBlocked()){
+            if(leftIsBlocked()){
+                break;
+            }
+            turnLeft();
+            move();
+            turnRight();
+        }
         while(frontIsClear()) {
             rowSurfing();
             if(leftIsClear()){
