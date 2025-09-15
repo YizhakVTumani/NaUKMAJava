@@ -3,6 +3,9 @@ import stanford.karel.SuperKarel;
 public class Practice2Third extends SuperKarel {
 
 	public void run() {
+        renewColumn();
+        moveBackToTheBottom();
+        moveToTheNextColumn();
         while(frontIsClear()) {
             renewColumn();
             moveBackToTheBottom();
