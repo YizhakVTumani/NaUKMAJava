@@ -7,18 +7,12 @@ public class Homework3First extends SuperKarel {
             surfingRow();
             if (leftIsClear()) {
                 rowRoaming();
+                toTheStartPoint();
+                mirroredSurfingRow();
             }
-            else {
-                break;
-            }
-            toTheStartPoint();
-            mirroredSurfingRow();
             if (leftIsClear()) {
                 rowRoaming();
                 toTheStartPoint();
-            }
-            else{
-                break;
             }
         }
         turnLeft();
@@ -36,23 +30,20 @@ public class Homework3First extends SuperKarel {
     private void surfingRow() {
         putBeeper();
         while(frontIsClear()) {
-
             move();
-            if(frontIsBlocked()) {
-                break;
+            if(frontIsClear()) {
+                move();
+                putBeeper();
             }
-            move();
-            putBeeper();
         }
     }
     private void mirroredSurfingRow() {
         while(frontIsClear()) {
             move();
             putBeeper();
-            if(frontIsBlocked()) {
-                break;
+            if(frontIsClear()) {
+                move();
             }
-            move();
         }
     }
     private void rowRoaming() {
