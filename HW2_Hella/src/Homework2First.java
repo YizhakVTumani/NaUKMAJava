@@ -7,24 +7,20 @@ public class Homework2First extends SuperKarel {
         comeBack();
     }
     private void moveToTheWall() {
-        while (frontIsClear()) {
-            move();
-            if (beepersPresent()){
-                break;
-            }
-        }
-        if (beepersPresent()){
-            pickBeeper();
-        }
-        else if (noBeepersPresent()){
-            turnRight();
-            while (leftIsBlocked()){
+        while (leftIsBlocked()) {
+            if (frontIsClear()){
                 move();
             }
-            turnLeft();
-            move();
-            pickBeeper();
+            else {
+                turnRight();
+                while (leftIsBlocked()){
+                    move();
+                }
+                turnLeft();
+                move();
+            }
         }
+        pickBeeper();
     }
     private void comeBack(){
         turnAround();
@@ -39,5 +35,4 @@ public class Homework2First extends SuperKarel {
         }
         turnAround();
     }
-
 }
