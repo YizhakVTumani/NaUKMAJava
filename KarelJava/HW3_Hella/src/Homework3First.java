@@ -1,5 +1,11 @@
 import stanford.karel.SuperKarel;
 
+
+//Author: Hella Nikita
+
+//В цьому завданні задачею Карела є розставити біпери в шаховому порядку в середині порожнього прямокутника
+
+
 public class Homework3First extends SuperKarel {
 
 	public void run() {

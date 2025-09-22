@@ -1,5 +1,10 @@
 import stanford.karel.*;
 
+//Author: Hella Nikita
+
+//Та ж сама задача, лише тепер стіни розташовані лише вертикально.
+
+
 public class Practice3Second extends SuperKarel {
 
 	public void run() {
