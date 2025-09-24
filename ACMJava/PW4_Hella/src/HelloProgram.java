@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class HelloProgram extends GraphicsProgram {
     public void run(){
-        this.setSize(500, 500);
+        this.setSize(500, 600);
         GLabel label = new GLabel("Гелла Нікіта Сергійович", 0, 75);
         label.setFont("SansSerif-30");
         label.setColor(Color.RED);

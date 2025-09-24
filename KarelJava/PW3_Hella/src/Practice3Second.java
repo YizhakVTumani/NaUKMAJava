@@ -8,6 +8,16 @@ import stanford.karel.*;
 public class Practice3Second extends SuperKarel {
 
 	public void run() {
+        pickBeeper();
+        while(frontIsClear()) {
+            if(leftIsBlocked()) {
+                move();
+                pickBeeper();
+            }
+            else{
+                break;
+            }
+        }
         turnLeft();
         pickUpBeeper();
         while(frontIsClear()) {

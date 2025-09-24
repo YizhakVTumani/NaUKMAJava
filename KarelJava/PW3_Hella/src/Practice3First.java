@@ -18,9 +18,19 @@ public class Practice3First extends SuperKarel {
 
 	public void run() {
         pickUpBeeper();
+        while(frontIsBlocked()){
+            if(leftIsBlocked()){
+                break;
+            }
+            pickUpBeeper();
+            turnLeft();
+            move();
+            turnRight();
+        }
         while(frontIsClear()) {
             seekForBeeper();
             toTheStartOfTheColumn();
+            pickUpBeeper();
             columnSurfing();
             if(leftIsClear()){
                 newLevelRoam();

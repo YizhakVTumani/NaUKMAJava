@@ -9,7 +9,9 @@ import stanford.karel.SuperKarel;
 public class Homework3First extends SuperKarel {
 
 	public void run() {
+        putBeeper();
         while(frontIsClear()) {
+
             surfingRow();
             if (leftIsClear()) {
                 rowRoaming();
@@ -33,8 +35,11 @@ public class Homework3First extends SuperKarel {
         }
         turnAround();
     }
-    private void surfingRow() { // karel moves along the row and puts beepers
-        putBeeper();
+    private void surfingRow() {// karel moves along the row and puts beepers
+        if (noBeepersPresent()){
+            putBeeper();
+        }
+
         while(frontIsClear()) {
             move();
             if(frontIsClear()) {
