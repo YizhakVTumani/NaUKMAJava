@@ -73,7 +73,7 @@ public class HouseWork extends GraphicsProgram {
         add(line3);
         GLine line4 = new GLine(width/2 + width/12, height/3 - 2 * heightOfTheRoof/3, width/2 + width/12, height/3);
         add(line4);
-        for (int i = 0; i < height/3; i += 1){
+        for (int i = 0; i < height/3; i ++){
             GLine line5 = new GLine(width/2 + width/8, height/3 - 2 * heightOfTheRoof/3 + i, width/2 + width/12, height/3 - 2 * heightOfTheRoof/3 + i);
             if(isDay) line5.setColor(new Color(150, 143, 132));
             else line5.setColor(new Color(64, 62, 57));
