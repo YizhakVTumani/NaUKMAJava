@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eea2b56-cac1-4a3b-b955-a89c619f9ef9" name="Changes" comment="" />
+    <list default="true" id="17b3e483-eb63-4c49-bcfb-56178060d6b1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,28 +10,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="33FDoRee7ts3TfnQnEluoXLd29k" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="33QOz8TcIrewRvYVZbKt4yqzkJW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HouseWork.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;pw5__test&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HouseWork.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -45,18 +38,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8eea2b56-cac1-4a3b-b955-a89c619f9ef9" name="Changes" comment="" />
-      <created>1758904100394</created>
+      <changelist id="17b3e483-eb63-4c49-bcfb-56178060d6b1" name="Changes" comment="" />
+      <created>1759246091642</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1758904100394</updated>
-      <workItem from="1758904101445" duration="2000" />
-      <workItem from="1758907669114" duration="287000" />
-      <workItem from="1758912855733" duration="345000" />
-      <workItem from="1758995800299" duration="3000" />
-      <workItem from="1758995811992" duration="319000" />
-      <workItem from="1758996183127" duration="1007000" />
-      <workItem from="1759005960493" duration="560000" />
+      <updated>1759246091642</updated>
+      <workItem from="1759246092698" duration="145000" />
     </task>
     <servers />
   </component>
