@@ -44,7 +44,7 @@ public class HouseWork extends GraphicsProgram {
         fenceCreator();
         smokeCreator();
 
-
+        signCreator();
     }
     private void roofCreator(){
         for (double i = 0; i < width/3; i += 1){
@@ -205,5 +205,11 @@ public class HouseWork extends GraphicsProgram {
                 else oval3.setColor(new Color(55, 64, 69));
                 add(oval3);
         }
+    }
+    private void signCreator(){
+        GLabel sign = new GLabel("Hella Nikita", 13 * width/20, 15 * height/20);
+        if(!isDay) sign.setColor(Color.GREEN);
+        sign.setFont(new Font("Arial", Font.ITALIC, 20));
+        add(sign);
     }
 }
