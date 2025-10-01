@@ -3,7 +3,12 @@ import acm.graphics.GOval;
 import acm.program.*;
 
 import java.awt.*;
+//Author: Hella Nikita
 
+//Намалювати сонечко з променями.
+//Кількість променів задається константою.
+//Промені мають бути розміщені рівномірно.
+//
 
 public class SunWork extends GraphicsProgram {
 
@@ -14,13 +19,13 @@ public class SunWork extends GraphicsProgram {
         sunCreation();
         sunraysQuantityCalculator();
     }
-    private void sunCreation(){
+    private void sunCreation(){// creates sun
         GOval sun = new GOval(250,250,300,300);
         sun.setFilled(true);
         sun.setColor(Color.YELLOW);
         add(sun);
     }
-    private void sunraysQuantityCalculator(){
+    private void sunraysQuantityCalculator(){// calculates quantity of the rays and their end position
         for (double i = 1; i <= sunraysQuantity; i ++){
             double rays = Math.toRadians(360) / sunraysQuantity * i;
             double xPoint = 400 + 400 * Math.cos(rays);

@@ -3,33 +3,40 @@ import acm.program.*;
 
 import java.awt.*;
 
+//Author: Hella Nikita
+
+//Намалювати різнокольоровий будинок
+//Використовуйте цикли
+//Додайте підпис на малюнок
+
+
 
 public class HouseWork extends GraphicsProgram {
 
-    private static final double height = 500;
-    private static final double width = 500;
+    private static final double height = 500; // height of the world
+    private static final double width = 500;// width of the world
 
-    private static final double heightOfTheRoof = 100;
+    private static final double heightOfTheRoof = 100; // height of the roof
 
-    private static final double widthOfTheWindow = 75;
-    private static final double heightOfTheWindow = 75;
+    private static final double widthOfTheWindow = 75; //width of the window
+    private static final double heightOfTheWindow = 75;// height of the window
 
-    private static final int quantityOfSmokes = 2;
+    private static final int quantityOfSmokes = 2; // quantity of smokes from pipe
 
-    private static final double heightOfTheSmoke = 20;
-    private static final double widthOfTheSmoke = 40;
+    private static final double heightOfTheSmoke = 20; //height of the smoke
+    private static final double widthOfTheSmoke = 40; //width of the smoke
 
-    private static final int startPositionFromHouse = 100;
-    private static final int endPositionFromHouse = 100;
+    private static final int startPositionFromHouse = 100; //start position of the fence
+    private static final int endPositionFromHouse = 100;//end position of the fence
 
-    private static final int starQuantity = 75;
+    private static final int starQuantity = 75; // quantity of stars
 
-    private static final boolean isDay = true;
+    private static final boolean isDay = true; // changing day & night
 
-    private static final double heightOfTheCloud = 30;
-    private static final double widthOfTheCloud = 50;
+    private static final double heightOfTheCloud = 30;//height of the cloud
+    private static final double widthOfTheCloud = 50;//width of the cloud
 
-    private static final int quantityOfClouds = 3;
+    private static final int quantityOfClouds = 3; //quantity of the cloud
 
     public void run(){
         this.setSize((int) width, (int) height);
@@ -46,7 +53,7 @@ public class HouseWork extends GraphicsProgram {
 
         signCreator();
     }
-    private void roofCreator(){
+    private void roofCreator(){ // creates roof
         for (double i = 0; i < width/3; i += 1){
             GLine line = new GLine(width/2, height/3 - heightOfTheRoof,2 * width/3 - i , height/3);
             if(isDay) line.setColor(new Color(133, 100, 30));
@@ -61,14 +68,14 @@ public class HouseWork extends GraphicsProgram {
             }
         }
     }
-    private void houseCreator(){
+    private void houseCreator(){// creates house
         GRect rect = new GRect(width/3, height/3, width/3, height/3);
         if(isDay) rect.setColor(new Color(150, 143, 132));
         else rect.setColor(new Color(64, 62, 57));
         rect.setFilled(true);
         add(rect);
     }
-    private void pipeCreator(){
+    private void pipeCreator(){// creates pipe
         GLine line3 = new GLine(width/2 + width/8, height/3 - 2 * heightOfTheRoof/3, width/2 + width/8, height/3);
         add(line3);
         GLine line4 = new GLine(width/2 + width/12, height/3 - 2 * heightOfTheRoof/3, width/2 + width/12, height/3);
@@ -80,7 +87,7 @@ public class HouseWork extends GraphicsProgram {
             add(line5);
         }
     }
-    private void windowCreator(){
+    private void windowCreator(){// creates window
         double middleX = width/2;
         double middleY = height/2;
         GRect rect = new GRect(middleX - widthOfTheWindow / 2, middleY - heightOfTheWindow / 2, widthOfTheWindow, heightOfTheWindow);
@@ -93,7 +100,7 @@ public class HouseWork extends GraphicsProgram {
         add(line0);
         add(line1);
     }
-    private void fenceCreator(){
+    private void fenceCreator(){// creates fence
         for (double i = 0; i < startPositionFromHouse + endPositionFromHouse + width/3; i += 15 ){
             GLine line5 = new GLine(width/3 - startPositionFromHouse + i - 7, 42 * height/72, width/3 - startPositionFromHouse + i + 15, 21 * height/36);
             add(line5);
@@ -139,7 +146,7 @@ public class HouseWork extends GraphicsProgram {
             }
         }
     }
-    private void smokeCreator(){
+    private void smokeCreator(){// creates smoke
         int distance = 0;
         for (int i = quantityOfSmokes; i > 0; i--){
             for(int j = 0; j < 30; j+=10){
@@ -152,7 +159,7 @@ public class HouseWork extends GraphicsProgram {
             distance += 50;
         }
     }
-    private void backgroundCreator(){
+    private void backgroundCreator(){// creates background
         GRect rectSky = new GRect(0, 0, width, 5 * height/9);
         rectSky.setFilled(true);
         if(isDay)rectSky.setColor(new Color(43, 169, 181));
@@ -168,7 +175,7 @@ public class HouseWork extends GraphicsProgram {
         }
         add(rectGround);
     }
-    private void starCreator(){
+    private void starCreator(){// creates stars
         if(!isDay){
             for(int i = starQuantity; i > 0; i--){
                 int j = (int)(Math.random() * 5 * height/9 - 10);
@@ -180,7 +187,7 @@ public class HouseWork extends GraphicsProgram {
             }
         }
     }
-    private void cloudCreator(){
+    private void cloudCreator(){// creates cloud
             for(int j = 0; j < quantityOfClouds; j++){
                 int randomYValue = (int)(Math.random() * 100);
                 int randomXValue = (int)(Math.random() * width - 50);
@@ -206,7 +213,7 @@ public class HouseWork extends GraphicsProgram {
                 add(oval3);
         }
     }
-    private void signCreator(){
+    private void signCreator(){// creates sign
         GLabel sign = new GLabel("Hella Nikita", 13 * width/20, 15 * height/20);
         if(!isDay) sign.setColor(Color.GREEN);
         sign.setFont(new Font("Arial", Font.ITALIC, 20));
