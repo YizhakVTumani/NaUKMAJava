@@ -31,7 +31,7 @@ public class HouseWork extends GraphicsProgram {
 
     private static final int starQuantity = 75; // quantity of stars
 
-    private static final boolean isDay = true; // changing day & night
+    private static final boolean isDay = false; // changing day & night
 
     private static final double heightOfTheCloud = 30;//height of the cloud
     private static final double widthOfTheCloud = 50;//width of the cloud
