@@ -17,9 +17,11 @@ public class HelloProgram extends ConsoleProgram {
             numberInPowerOfFour(a);
             findYInSquareFunction(a, b, c, x);
         } while (readInt("If you want to continue type 0, else another value (1-9): ") == 0);
+
         println("");
         println("Next part of the task!");
         println("");
+
         do{
             println("Write values of 'a', 'b', 'c' and 'd'");
             println("Note: if the value is too high, it could give wrong values");
@@ -30,8 +32,10 @@ public class HelloProgram extends ConsoleProgram {
             findYOfXInFourthPower(y);
             findRootsOfSquaredFunction(a, b, c, y);
             findXofLinearFunction(a, c, y);
-        }while (readInt("If you want to continue type 0, else another value (1-9): ") == 0);
+        } while (readInt("If you want to continue type 0, else another value (1-9): ") == 0);
     }
+
+
     private void maxNumberOfFour(int a, int b, int c, int d){
         int value;
         int maxValueOfAAndB;
@@ -55,35 +59,35 @@ public class HelloProgram extends ConsoleProgram {
 
 
 
-
     private void  findYOfXInFourthPower(int y){
-        if (y >= 0){
+        if (y > 0){
             double value = Math.pow(y, 0.25);
             println("Value of Y is: " + value + " or - " + value);
+        }
+        else if (y == 0){
+            println("Value of Y is: 0");
         }
         else {
             println("Value of Y is: None, y < 0");
         }
     }
     private void findRootsOfSquaredFunction(int a, int b, int c, int y){
-        double discriminant = Math.sqrt(Math.pow(b, 2) - (4 * (a * (c - y))));
-        println(discriminant);
-        if (a == 0 & discriminant > 0){
-            double value = (double) (y - c) /b;
-            println("Roots of Squared Function are: " + value);
+        if (a == 0){
+            int value = (c - y)/b;
+            println("Value of X is: " + value);
         }
         else {
-            if (discriminant > 0 & a != 0) {
+            double discriminant = Math.sqrt(Math.pow(b, 2) - (4 * (a * (c - y))));
+            println(discriminant);
+
+            if (discriminant > 0) {
                 double root1 = (-b - discriminant) / (2 * a);
                 double root2 = (-b + discriminant) / (2 * a);
                 println("Roots of Squared Function are: " + root1 + " and " + root2);
             }
-            else if (discriminant == 0 & a != 0) {
+            else if (discriminant == 0) {
                 double root = (double) (-b) / (2 * a);
                 println("Roots of Squared Function are: " + root);
-            }
-            else if (a == 0) {
-                println("Roots of Squared Function are: " + "None, ");
             }
             else {
                 println("Roots of Squared Function are: " + "None, discriminant is negative");
@@ -96,7 +100,7 @@ public class HelloProgram extends ConsoleProgram {
             println("Value of X is: " + value);
         }
         else {
-            println("Value of X is: None, a < 0");
+            println("Value of X is: Any, a = 0");
         }
     }
 }
