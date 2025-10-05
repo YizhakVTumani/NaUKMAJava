@@ -8,11 +8,7 @@ public class HelloProgram extends ConsoleProgram {
         do {
             println("Write values of 'a', 'b', 'c' and 'd'");
             println("Note: if the value is too high, it could give wrong values");
-            int a = readInt("Value of a: ");
-            int b = readInt("Value of b: ");
-            int c = readInt("Value of c: ");
-            int d = readInt("Value of d: ");
-            int x = readInt("Value of x: ");
+            int a = readInt("Value of a: "), b = readInt("Value of b: "), c = readInt("Value of c: "), d = readInt("Value of d: "), x = readInt("Value of x: ");
             maxNumberOfFour(a, b, c, d);
             numberInPowerOfFour(a);
             findYInSquareFunction(a, b, c, x);
@@ -25,10 +21,7 @@ public class HelloProgram extends ConsoleProgram {
         do{
             println("Write values of 'a', 'b', 'c' and 'd'");
             println("Note: if the value is too high, it could give wrong values");
-            int a = readInt("Value of a: ");
-            int b = readInt("Value of b: ");
-            int c = readInt("Value of c: ");
-            int y = readInt("Value of y: ");
+            int a = readInt("Value of a: "), b = readInt("Value of b: "), c = readInt("Value of c: "), y = readInt("Value of y: ");
             findYOfXInFourthPower(y);
             findRootsOfSquaredFunction(a, b, c, y);
             findXofLinearFunction(a, c, y);
@@ -37,9 +30,7 @@ public class HelloProgram extends ConsoleProgram {
 
 
     private void maxNumberOfFour(int a, int b, int c, int d){
-        int value;
-        int maxValueOfAAndB;
-        int maxValueOfCAndD;
+        int value, maxValueOfAAndB, maxValueOfCAndD;
         if(a >= b) maxValueOfAAndB = a;
         else maxValueOfAAndB = b;
         if(c >= d) maxValueOfCAndD = c;
@@ -64,12 +55,8 @@ public class HelloProgram extends ConsoleProgram {
             double value = Math.pow(y, 0.25);
             println("Value of Y is: " + value + " or - " + value);
         }
-        else if (y == 0){
-            println("Value of Y is: 0");
-        }
-        else {
-            println("Value of Y is: None, y < 0");
-        }
+        else if (y == 0) println("Value of Y is: 0");
+        else println("Value of Y is: None, y < 0");
     }
     private void findRootsOfSquaredFunction(int a, int b, int c, int y){
         if (a == 0){
@@ -78,8 +65,6 @@ public class HelloProgram extends ConsoleProgram {
         }
         else {
             double discriminant = Math.sqrt(Math.pow(b, 2) - (4 * (a * (c - y))));
-            println(discriminant);
-
             if (discriminant > 0) {
                 double root1 = (-b - discriminant) / (2 * a);
                 double root2 = (-b + discriminant) / (2 * a);
@@ -89,9 +74,7 @@ public class HelloProgram extends ConsoleProgram {
                 double root = (double) (-b) / (2 * a);
                 println("Roots of Squared Function are: " + root);
             }
-            else {
-                println("Roots of Squared Function are: " + "None, discriminant is negative");
-            }
+            else println("Roots of Squared Function are: " + "None, discriminant is negative");
         }
     }
     private void  findXofLinearFunction(int a, int c, int y){
@@ -99,8 +82,6 @@ public class HelloProgram extends ConsoleProgram {
             int value = (c - y)/a;
             println("Value of X is: " + value);
         }
-        else {
-            println("Value of X is: Any, a = 0");
-        }
+        else println("Value of X is: Any, a = 0");
     }
 }
