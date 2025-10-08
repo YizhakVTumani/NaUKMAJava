@@ -3,13 +3,23 @@ import acm.program.*;
 
 import java.awt.*;
 
+//Author:Hella Nikita
+//file: HelloProgram.java
+
+//1. Написати програму, що намалює шахову доску.
+//
+//Використати: константи, цикли.
+//
+//Розмір шахової дошки = розміру вікна. І так, вона може бути не квадратною ;-(
+//Можливі варіанти малювання  будь-яких n*m рядків та колонок, які вписуються в розмір дошки
+
 public class HelloProgram extends GraphicsProgram {
 
     private static final int WIDTH = 500;
     private static final int HEIGHT = 500;
 
-    private static final int QUANTITYOFTHESQUARESBYX = 15;
-    private static final int QUANTITYOFTHESQUARESBYY = 15;
+    private static final double QUANTITYOFTHESQUARESBYX = 15;
+    private static final double QUANTITYOFTHESQUARESBYY = 15;
 
     public void run() {
         int firstRowCounter = 0;

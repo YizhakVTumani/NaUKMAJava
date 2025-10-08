@@ -3,6 +3,25 @@ import acm.program.*;
 
 import java.awt.*;
 
+//Author: Hella Nikita
+//File: HelloProgram.java
+
+//Обчисліть значення функції та виведіть його на екран.
+//
+//у=МАХ(a, b, c, d)
+//y=x4
+//y=ax2+bx+c
+//Значення a, b, c, d та х задаються з клавіатури та використовуються для для всіх 3 підзадач
+//
+//2. Розв'яжіть рівняння та виведіть на екран результат.
+//
+//y=x4
+//y=ax2+bx+c
+//y=ax+c
+//Значення a, b, c, у задаються з клавіатури та використовуються для для всіх 3 підзадач, значення у - будь-яке.
+
+
+
 public class HelloProgram extends ConsoleProgram {
     public void run(){
         do {
