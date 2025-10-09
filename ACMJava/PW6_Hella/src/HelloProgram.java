@@ -24,6 +24,7 @@ import java.awt.*;
 
 public class HelloProgram extends ConsoleProgram {
     public void run(){
+        setFont(new Font("Arial", Font.PLAIN, 20));
         do {
             println("Write values of 'a', 'b', 'c' and 'd'");
             println("Note: if the value is too high, it could give wrong values");
@@ -48,7 +49,7 @@ public class HelloProgram extends ConsoleProgram {
     }
 
 
-    private void maxNumberOfFour(int a, int b, int c, int d){
+    private void maxNumberOfFour(int a, int b, int c, int d){ // searches max number of a, b, c, d
         int value, maxValueOfAAndB, maxValueOfCAndD;
         if(a >= b) maxValueOfAAndB = a;
         else maxValueOfAAndB = b;
@@ -58,18 +59,18 @@ public class HelloProgram extends ConsoleProgram {
         else value = maxValueOfCAndD;
         println("Max value of a, b, c and d is: " + value);
     }
-    private void numberInPowerOfFour(int x){
+    private void numberInPowerOfFour(int x){ // finds x in 4 power
         double value = x*x*x*x;
         println("4-th power of number a is: " + value);
     }
-    private void findYInSquareFunction(int a, int b, int c, int x){
+    private void findYInSquareFunction(int a, int b, int c, int x){ // finds value of function
         double value = a * a * x + b * x + c;
         println("Value of Y is: " + value);
     }
 
 
 
-    private void  findYOfXInFourthPower(int y){
+    private void  findYOfXInFourthPower(int y){ // finds root in power of 4
         if (y > 0){
             double value = Math.pow(y, 0.25);
             println("Value of Y is: " + value + " or - " + value);
@@ -77,7 +78,7 @@ public class HelloProgram extends ConsoleProgram {
         else if (y == 0) println("Value of Y is: 0");
         else println("Value of Y is: None, y < 0");
     }
-    private void findRootsOfSquaredFunction(int a, int b, int c, int y){
+    private void findRootsOfSquaredFunction(int a, int b, int c, int y){ // finds roots of square function
         if (a == 0){
             int value = (c - y)/b;
             println("Value of X is: " + value);
@@ -96,7 +97,7 @@ public class HelloProgram extends ConsoleProgram {
             else println("Roots of Squared Function are: " + "None, discriminant is negative");
         }
     }
-    private void  findXofLinearFunction(int a, int c, int y){
+    private void  findXofLinearFunction(int a, int c, int y){ // finds x of linear function
         if(a != 0){
             int value = (c - y)/a;
             println("Value of X is: " + value);
