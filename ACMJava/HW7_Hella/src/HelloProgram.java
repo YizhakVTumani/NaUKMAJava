@@ -6,6 +6,8 @@ import java.awt.*;
 //Author: Hella Nikita
 //File: HelloProgram.java
 
+//Користувач вводить число яке обмежує значення максимального числа Фібоначі, що має бути обраховане.
+//Тобто вивід триває поки значення наступного числа фібоначі не перевищує введене користувачем число.
 
 public class HelloProgram extends ConsoleProgram {
     public void run() {
