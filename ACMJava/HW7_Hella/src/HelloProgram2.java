@@ -17,21 +17,23 @@ import java.awt.*;
 public class HelloProgram2 extends ConsoleProgram {
     public void run() {
         setFont(new Font("Times New Roman", Font.BOLD, 20));
-        int n = readInt("Enter the quantity of the disks: ");
-        int startRode = readInt("Enter the first rode: ");
-        int endRode = readInt("Enter the last rode: ");
-        println("It takes " + (Math.pow(2, n)-1) + " moves.");
-        hanoyanTower(n, startRode, endRode);
+        do{
+            int n = readInt("Enter the quantity of the disks: ");
+            int startRode = readInt("Enter the first rode: ");
+            int endRode = readInt("Enter the last rode: ");
+            println("It takes " + (Math.pow(2, n)-1) + " moves.");
+            hanoyanTower(n, startRode, endRode);
+        }while(readInt("if you want to repeat type 0: ") == 0);
     }
     private void hanoyanTower(int n, int startRode, int endRode){
         if (n == 1){
             println(startRode + " --> " + endRode);
         }
         else{
-        int other = 6 - (startRode + endRode);
-        hanoyanTower(n-1, startRode, other);
-        println(startRode + " --> " + endRode);
-        hanoyanTower(n-1, other, endRode);
+            int other = 6 - (startRode + endRode);
+            hanoyanTower(n-1, startRode, other);
+            println(startRode + " --> " + endRode);
+            hanoyanTower(n-1, other, endRode);
         }
     }
 }

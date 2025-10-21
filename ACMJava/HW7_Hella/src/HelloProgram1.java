@@ -18,17 +18,17 @@ import java.awt.*;
 //Малюнок розміщується по центру вікна. При зміні розмірів вікна обличчя розміщується по центру вікна
 
 public class HelloProgram1 extends GraphicsProgram {
-    private static final int HEIGHT = 200;
-    private static final int WIDTH = 200;
+    private static final int HEIGHT = 600;
+    private static final int WIDTH = 1000;
     private static final int CENTER_X = WIDTH/2;
     private static final int CENTER_Y = HEIGHT/2;
 
-    private static final int HEAD_WIDTH = 300;
-    private static final int HEAD_HEIGHT = 300;
+    private static final int HEAD_WIDTH = 800;
+    private static final int HEAD_HEIGHT = 400;
 
-    private static final int EYE_RADIUS = 100;
+    private static final int EYE_RADIUS = 200;
 
-    private static final int MOUTH_WIDTH = 100;
+    private static final int MOUTH_WIDTH = 900;
     private static final int MOUTH_HEIGHT = 30;
     private static final int ANTENRADIUS = 30;
 

@@ -14,18 +14,20 @@ import java.awt.*;
 public class HelloProgram extends ConsoleProgram {
     public void run(){
         do{
-            println("is not recommended to use numbers superior than 40");
+            println("is not recommended to use numbers superior than 40. Fibonacci");
             int n = readInt("Please enter a number: ");
             if (n < 0) println("Negative number is not included!");
-
-            for (int i = 0; i < n; i++){
-                println(n - i + " - " + fibonacciR(n - i) + " - " + fibonacci(n - i));
+            else {
+                for (int i = 0; i < n; i++) {
+                    println(n - i + " - " + fibonacciR(n - i) + " - " + fibonacci(n - i));
+                }
+                println("0 - 0 - 0");
             }
-            println("0 - 0 - 0");
+
         }while(readInt("if you want to repeat type 0: ") == 0);
 
         do{
-            println("is not recommended to use numbers superior than 40");
+            println("is not recommended to use numbers superior than 40. Factorial");
             int n = readInt("Please enter a number: ");
             if (n <= 0) println("Negative number is not included!");
             for (int i = 0; i < n; i++){
