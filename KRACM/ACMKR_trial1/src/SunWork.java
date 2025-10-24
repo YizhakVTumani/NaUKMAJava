@@ -6,9 +6,9 @@ import acm.program.*;
 import java.awt.*;
 
 public class SunWork extends GraphicsProgram {
-    private final static int quantityOfSquares = 1;
+    private final static int quantityOfSquares = 4;
     private final static int WIDTH = 500;
-    private final static int HEIGHT = 200;
+    private final static int HEIGHT = 500;
 
 
     public void run() {

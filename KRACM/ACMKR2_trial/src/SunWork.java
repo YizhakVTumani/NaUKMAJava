@@ -19,11 +19,13 @@ public class SunWork extends GraphicsProgram {
         setSize(WIDTH + 50, HEIGHT + 70);
         RandomGenerator rg = new RandomGenerator();
         for (int i = 0; i < QUANTITYOFSQUARES; i++) {
-            int posX = rg.nextInt(1, 500);
-            int posY = rg.nextInt(1, 500);
+            int posX = rg.nextInt(1, WIDTH);
+            int posY = rg.nextInt(1, HEIGHT);
             int width = rg.nextInt(1, WIDTH - posX - 20);
-            int height = rg.nextInt(1, HEIGHT - posY - 20);
-            GRect rect = new GRect(posX, posY, width, height);
+            while(width > WIDTH - posX - 20 || width > WIDTH - posY - 20){
+                width --;
+            }
+            GRect rect = new GRect(posX, posY, width, width);
             add(rect);
         }
     }

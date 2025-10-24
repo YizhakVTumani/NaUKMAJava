@@ -9,38 +9,55 @@ import acm.program.*;
 public class PythagorasTheorem extends ConsoleProgram {
 
     public void run(){
-        do {
-            int x = readInt("Write value of x: ");
-            int y = readInt("Write value of y: ");
-            println("Hypotenuse is: " + pythagorCalculus(x, y));
-        }while (readInt("Do you want to continue? press 1: ") != 1);
+//        do {
+//            int x = readInt("Write value of x: ");
+//            int y = readInt("Write value of y: ");
+//            println("Hypotenuse is: " + pythagorCalculus(x, y));
+//        }while (readInt("Do you want to continue? press 1: ") != 1);
+//
+//
+//        println("This program finds the smallest and the biggest number");
+//        println("To stop execution press 0");
+//        do {
+//            int max = 0;
+//            int min = 0;
+//            int x = 1;
+//            while (x != 0) {
+//                x = readInt("Write value of x: ");
+//                if (x != 0) {
+//                    min = min(x, min);
+//                    max = max(x, max);
+//                }
+//            }
+//            println("Min number is: " + min);
+//            println("Max number is: " + max);
+//        }while(readInt("Do you want to continue? press 1: ") != 1);
+//
+//        do {
+//            println("3n+1 algorithm");
+//            int steps = 0;
+//            int res = readInt("Enter value of n. It should be positive: ");
+//            if (res < 0) {
+//                res = readInt("Enter value of n. It should be positive: ");
+//            }
+//            println("The result is: " + 1 + " counter of steps is: " + algorithm(res, steps));
+//        }while(readInt("Do you want to continue? press 1: ") != 1);
 
-
-        println("This program finds the smallest and the biggest number");
-        println("To stop execution press 0");
-        do {
-            int max = 0;
-            int min = 0;
-            int x = 1;
-            while (x != 0) {
-                x = readInt("Write value of x: ");
-                if (x != 0) {
-                    min = min(x, min);
-                    max = max(x, max);
-                }
+        do{
+            double res = 1;
+            double res1 = 0;
+            int i = 0;
+            double x = readDouble("Enter the value of x. It should be positive limited as: 0 <= x < 1: ");
+            double temp = 1;
+            while (0 > x ||  x > 1){
+                x = readDouble("Enter the value of x. It should be positive limited as: 0 <= x < 1: ");
             }
-            println("Min number is: " + min);
-            println("Max number is: " + max);
+            double accuracy = readDouble("Enter the value of accuracy: ");
+
+            println("The value is: " + sumEx7(res, accuracy,  x,  temp,  res1));
+            println("The value of Recursion is: " + sumEx7R( res,  accuracy,  x,  res1,  i));
         }while(readInt("Do you want to continue? press 1: ") != 1);
 
-        println("3n+1 algorithm");
-        int steps = 0;
-        int res = readInt("Enter value of n. It should be positive: ");
-        if (res < 0){
-             res = readInt("Enter value of n. It should be positive: ");
-        }
-
-        println("The result is: " + 1 + " counter of steps is: " + algorithm(res, steps));
     }
     private double pythagorCalculus(int x, int y){
         return Math.sqrt(x * x + y * y);
@@ -75,5 +92,35 @@ public class PythagorasTheorem extends ConsoleProgram {
             println(res + " * 3 + 1");
             return algorithm(res*3 + 1, steps + 1);
         }
+    }
+
+    private int factorial(int n){
+        for(int i = n - 1; i > 0; i--){
+            n *= i;
+        }
+        if(n == 0){
+            return 1;
+        }
+        else{
+            return n;
+        }
+    }
+    private double sumEx7(double res, double accuracy, double x, double temp, double res1){
+        for (int i = 1; accuracy < temp; i++){
+            res += Math.pow(x, i)/factorial(i);
+            res1 += Math.pow(x, i - 1)/factorial(i - 1);
+            temp = res - res1;
+//            println("The value is: " + res);
+        }
+        return res;
+    }
+    private double sumEx7R(double res, double accuracy, double x, double res1, int i){
+
+        if (res - res1 > accuracy){
+            i++;
+//            println("The value of Rec is: " + res);
+            return sumEx7R(res + Math.pow(x, i)/factorial(i), accuracy, x, res1 + Math.pow(x, i - 1)/factorial(i - 1), i);
+        }
+        return res;
     }
 }

@@ -4,6 +4,7 @@ public class lection1 extends SuperKarel {
 
     public void run() {
         putBeeper();
+        putBeeper();
         turnLeft();
         goingThroughAColumn();
         checkForBeeper();
@@ -13,12 +14,22 @@ public class lection1 extends SuperKarel {
             checkForBeeper();
             goingThroughARow();
         }
+        if(facingWest()){
+            turnAround();
+        }
+        else if(facingNorth()){
+            turnRight();
+        }
+        else if(facingSouth()){
+            turnLeft();
+        }
     }
     public void goingThroughARow() {
         while(frontIsClear()){
             move();
             if(frontIsClear()){
                 move();
+                putBeeper();
                 putBeeper();
             }
         }
@@ -30,6 +41,7 @@ public class lection1 extends SuperKarel {
             if(frontIsClear()){
                 move();
                 putBeeper();
+                putBeeper();
             }
         }
     }
@@ -40,10 +52,12 @@ public class lection1 extends SuperKarel {
             }
             else{
                 turnRight();
-                move();
-                putBeeper();
+                if (frontIsClear()){
+                    move();
+                    putBeeper();
+                    putBeeper();
+                }
             }
         }
-
     }
 }
