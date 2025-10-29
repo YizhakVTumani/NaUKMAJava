@@ -4,10 +4,10 @@ import acm.program.*;
 import java.awt.*;
 //Author: Hella Nikita
 
-//Намалювати сонечко з променями.
-//Кількість променів задається константою.
-//Промені мають бути розміщені рівномірно.
-//
+//Filename: DiagramTask
+
+//Написати програму, що малює часткову діаграму класів acm.program, як показано в прикладі:
+//Діаграма має вписуватись у розміри вікна і розташовуватися по центру вікна.
 
 public class DiagramTask extends GraphicsProgram {
 
@@ -22,14 +22,14 @@ public class DiagramTask extends GraphicsProgram {
         rectangleCreator();
     }
 
-    public void lineCreator() {
+    public void lineCreator() { // creates lines from upper rectangle
         for (int i = 0; i < 3; i++) {
             GLine line = new GLine(2 * RECTANGLEWIDTH, RECTANGLEHEIGHT + RECTANGLEHEIGHT, RECTANGLEWIDTH / 4 + RECTANGLEWIDTH / 2 + RECTANGLEWIDTH / 4 * i + RECTANGLEWIDTH * i, RECTANGLEHEIGHT + RECTANGLEHEIGHT * 2);
             add(line);
         }
     }
 
-    public void rectangleCreator() {
+    public void rectangleCreator() { // creates rectangles
         for (int j = 0; j < 2; j++) {
             for (int i = 0; i < 3; i++) {
                 if (j == 1 || (j == 0 && (i != 0 && i != 2))) {
@@ -41,7 +41,7 @@ public class DiagramTask extends GraphicsProgram {
         }
     }
 
-    public void textCreator(int i, int j) {
+    public void textCreator(int i, int j) { // creates text
         if (i == 1 && j == 0) {
             GLabel label = new GLabel("Program", RECTANGLEWIDTH / 4 + RECTANGLEWIDTH / 4 * i + RECTANGLEWIDTH * i, RECTANGLEHEIGHT * 1.5);
             add(label);

@@ -2,7 +2,14 @@ import acm.graphics.GRect;
 import acm.program.*;
 //Author: Hella Nikita
 
+//Filename: BrickWallTask
 
+// Напишіть програму що малює піраміду. Піраміда складається з горизонтальних рядів цеглин. В кожному наступному ряду кількість цеглин зменшується на один.
+//Піраміда має розташовуватися по центру горизонталі вікна. Мають бути використані наступні константи (тестувати при різних значеннях констант):
+//
+//BRICK_WIDTH - 30 пікселів
+//BRICK_HEIGHT - 12 пікселів
+//BRICKS_IN_BASE - 14
 
 public class BrickWallTask extends GraphicsProgram {
 

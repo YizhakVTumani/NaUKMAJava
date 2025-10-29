@@ -5,7 +5,13 @@ import acm.program.*;
 import java.awt.*;
 //Author: Hella Nikita
 
+//Filename: TargetTask
 
+//Ви маєте написати програму, що малює зображення "мішень для лучника"
+//Мішень має розташовуватися по центру вікна. Мають бути використані константи:
+//ширира світу;
+//висота світу;
+//кількість кругів.
 
 public class TargetTask extends GraphicsProgram {
 
