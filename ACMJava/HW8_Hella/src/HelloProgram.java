@@ -24,22 +24,22 @@ public class HelloProgram extends ConsoleProgram {
     RandomGenerator rgen = RandomGenerator.getDefault();
 
     public void run(){
-        int result = rgen.nextInt(0, 100);
-        int steps = 0;
-        while (true){
-            steps ++;
-            int guess = readInt("Guess: ");
-            if (result == guess){
-                println("Congratulations! You win!");
-                break;
+        do {
+            int result = rgen.nextInt(0, 100);
+            int steps = 0;
+            while (true) {
+                steps++;
+                int guess = readInt("Guess: ");
+                if (result == guess) {
+                    println("Congratulations! You win!");
+                    break;
+                } else if (result > guess) {
+                    println("Take higher!");
+                } else if (result < guess) {
+                    println("Take lower!");
+                }
             }
-            else if (result > guess){
-                println("Take higher!");
-            }
-            else if (result < guess){
-                println("Take lower!");
-            }
-        }
-        println("It took you " + steps + " steps.");
+            println("It took you " + steps + " steps.");
+        }while(readInt("Continue?") == 0);
     }
 }

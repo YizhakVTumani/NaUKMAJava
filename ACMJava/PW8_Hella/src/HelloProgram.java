@@ -32,12 +32,12 @@ public class HelloProgram extends ConsoleProgram {
             if (i == 1) {
                 do {
                     for (int k = 1; k <= dices; k++) {
-                        res = rgen.nextInt(1, edge);
+                        res = rgen.nextInt(1, edge + 1);
                         tempPlayer1 += res;
                         println("Roll for player 1 (you), dice number " + k + ": " + res);
                     }
                     for (int k = 1; k <= dices; k++) {
-                        res = rgen.nextInt(1, edge);
+                        res = rgen.nextInt(1, edge + 1);
                         tempPlayer2 += res;
                         println("Roll for player 2 (bot), dice number " + k + ": " + res);
                     }
@@ -57,12 +57,12 @@ public class HelloProgram extends ConsoleProgram {
                 int rolls = readInt("Enter quantity of rolls: ");
                 for (int j = rolls; j > 0; j--) {
                     for (int k = 1; k <= dices; k++) {
-                        res = rgen.nextInt(1, edge);
+                        res = rgen.nextInt(1, edge + 1);
                         tempPlayer1 += res;
                         println("Roll for player 1 (you), dice number " + k + ": " + res);
                     }
                     for (int k = 1; k <= dices; k++) {
-                        res = rgen.nextInt(1, edge);
+                        res = rgen.nextInt(1, edge + 1);
                         tempPlayer2 += res;
                         println("Roll for player 2 (bot), dice number " + k + ": " + res);
                     }

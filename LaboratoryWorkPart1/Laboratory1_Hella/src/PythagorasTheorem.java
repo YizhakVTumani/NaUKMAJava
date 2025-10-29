@@ -1,17 +1,14 @@
 import acm.program.*;
 //Author: Hella Nikita
 
-//Намалювати сонечко з променями.
-//Кількість променів задається константою.
-//Промені мають бути розміщені рівномірно.
-//
+
 
 public class PythagorasTheorem extends ConsoleProgram {
 
     public void run(){
 //        do {
-//            int x = readInt("Write value of x: ");
-//            int y = readInt("Write value of y: ");
+//            int x = readInt("Write value of a: ");
+//            int y = readInt("Write value of b: ");
 //            println("Hypotenuse is: " + pythagorCalculus(x, y));
 //        }while (readInt("Do you want to continue? press 1: ") != 1);
 //
@@ -42,22 +39,36 @@ public class PythagorasTheorem extends ConsoleProgram {
 //            }
 //            println("The result is: " + 1 + " counter of steps is: " + algorithm(res, steps));
 //        }while(readInt("Do you want to continue? press 1: ") != 1);
+//
+//        do{
+//            double res = 1;
+//            double res1 = 0;
+//            int i = 0;
+//            double x = readDouble("Enter the value of x. It should be positive limited as: 0 <= x < 1: ");
+//            double temp = 1;
+//            while (0 > x ||  x > 1){
+//                x = readDouble("Enter the value of x. It should be positive limited as: 0 <= x < 1: ");
+//            }
+//            double accuracy = readDouble("Enter the value of accuracy: ");
+//
+//            println("The value is: " + exOfTheSumNumber7(res, accuracy,  x,  temp,  res1));
+//            println("The value of Recursion is: " + exOFTheSumNumber7Recursion( res,  accuracy,  x,  res1,  i));
+//            println("The true resukt is: " + Math.exp(x));
+//        }while(readInt("Do you want to continue? press 1: ") != 1);
 
         do{
             double res = 1;
             double res1 = 0;
             int i = 0;
-            double x = readDouble("Enter the value of x. It should be positive limited as: 0 <= x < 1: ");
+            double x = Math.cos(readDouble("Enter the value of x. It should be positive limited as: -0.77 <= x <= 0.77: "));
             double temp = 1;
-            while (0 > x ||  x > 1){
-                x = readDouble("Enter the value of x. It should be positive limited as: 0 <= x < 1: ");
+            while (-0.77 > Math.cos(x) ||  Math.cos(x) > 0.77){
+                x = readDouble("Enter the value of x. It should be positive limited as: -0.77 <= x <= 0.77: ");
             }
             double accuracy = readDouble("Enter the value of accuracy: ");
-
-            println("The value is: " + sumEx7(res, accuracy,  x,  temp,  res1));
-            println("The value of Recursion is: " + sumEx7R( res,  accuracy,  x,  res1,  i));
+            println("The value is: " + sumEx8(res, accuracy,  x,  temp,  res1));
+//            println("The value of Recursion is: " + sumEx8R( res,  accuracy,  x,  res1,  i));
         }while(readInt("Do you want to continue? press 1: ") != 1);
-
     }
     private double pythagorCalculus(int x, int y){
         return Math.sqrt(x * x + y * y);
@@ -93,7 +104,6 @@ public class PythagorasTheorem extends ConsoleProgram {
             return algorithm(res*3 + 1, steps + 1);
         }
     }
-
     private int factorial(int n){
         for(int i = n - 1; i > 0; i--){
             n *= i;
@@ -105,7 +115,7 @@ public class PythagorasTheorem extends ConsoleProgram {
             return n;
         }
     }
-    private double sumEx7(double res, double accuracy, double x, double temp, double res1){
+    private double exOfTheSumNumber7(double res, double accuracy, double x, double temp, double res1){
         for (int i = 1; accuracy < temp; i++){
             res += Math.pow(x, i)/factorial(i);
             res1 += Math.pow(x, i - 1)/factorial(i - 1);
@@ -114,12 +124,37 @@ public class PythagorasTheorem extends ConsoleProgram {
         }
         return res;
     }
-    private double sumEx7R(double res, double accuracy, double x, double res1, int i){
+    private double exOFTheSumNumber7Recursion(double res, double accuracy, double x, double res1, int i){
 
         if (res - res1 > accuracy){
             i++;
 //            println("The value of Rec is: " + res);
-            return sumEx7R(res + Math.pow(x, i)/factorial(i), accuracy, x, res1 + Math.pow(x, i - 1)/factorial(i - 1), i);
+            return exOFTheSumNumber7Recursion(res + Math.pow(x, i)/factorial(i), accuracy, x, res1 + Math.pow(x, i - 1)/factorial(i - 1), i);
+        }
+        return res;
+    }
+
+    private double sumEx8(double res, double accuracy, double x,double temp, double res1){
+        double sum = 1;
+        for (int i = 1; accuracy < Math.abs(res); i++){
+//            res += Math.pow(-1, i) * (Math.pow(x, 2 * i)/factorial(2 * i));
+            res = res * (-(Math.pow(x, 2)/((2 * i) * (2 * i - 1 ))));
+            sum += res;
+
+//            res1 = Math.pow(-1, i) * (Math.pow(x, 2 * i)/factorial(2 * i));
+//            res1 = (-(Math.pow(x, 2)/((2 * i) * (2 * i - 1 ))));
+            println("The value is: " + res);
+            println("The value is: " + sum);
+//            temp = Math.abs(res1);
+//            println("The value is: " + temp);
+        }
+        return sum;
+    }
+    private double sumEx8R(double res, double accuracy, double x, double res1, int i){
+        if (res - res1 > accuracy){
+            i++;
+            println("The value of Rec is: " + res);
+            return sumEx8R(res + Math.pow(x, i)/factorial(i), accuracy, x, res1 + Math.pow(x, i - 1)/factorial(i - 1), i);
         }
         return res;
     }

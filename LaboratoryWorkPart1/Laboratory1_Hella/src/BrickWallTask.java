@@ -2,18 +2,15 @@ import acm.graphics.GRect;
 import acm.program.*;
 //Author: Hella Nikita
 
-//Намалювати сонечко з променями.
-//Кількість променів задається константою.
-//Промені мають бути розміщені рівномірно.
-//
+
 
 public class BrickWallTask extends GraphicsProgram {
 
-    private final static int BRICK_HEIGHT = 12;
-    private final static int BRICK_WIDTH = 30;
-    private final static int BRICK_IN_BASE = 100;
+    private final static int BRICK_HEIGHT = 75;
+    private final static int BRICK_WIDTH = 100;
 
-    private final static int WIDTH = 500;
+    private final static int BRICK_IN_BASE = 7;
+    private final static int WIDTH = 750;
     private final static int HEIGHT = 500;
 
     public void run(){

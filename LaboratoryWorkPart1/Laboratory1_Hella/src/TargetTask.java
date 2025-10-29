@@ -5,17 +5,14 @@ import acm.program.*;
 import java.awt.*;
 //Author: Hella Nikita
 
-//Намалювати сонечко з променями.
-//Кількість променів задається константою.
-//Промені мають бути розміщені рівномірно.
-//
+
 
 public class TargetTask extends GraphicsProgram {
 
     private static final int HEIGHT = 500;
     private static final int WIDTH = 500;
-    private static final int CIRCLES_QUANTITY = 50;
-    private static final int DISTANCE = 5;
+    private static final int CIRCLES_QUANTITY = 100;
+    private static final int DISTANCE = 20;
 
     public void run(){
         setSize(WIDTH + 20,HEIGHT + 60);

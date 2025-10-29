@@ -11,8 +11,8 @@ import java.awt.*;
 
 public class DiagramTask extends GraphicsProgram {
 
-    private static final int HEIGHT = 300;
-    private static final int WIDTH = 500;
+    private static final int HEIGHT = 1000;
+    private static final int WIDTH = 300;
     private static final int RECTANGLEWIDTH = WIDTH / 4;
     private static final int RECTANGLEHEIGHT = HEIGHT / 5;
 
