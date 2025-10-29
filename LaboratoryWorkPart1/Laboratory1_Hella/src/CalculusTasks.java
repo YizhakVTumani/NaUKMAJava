@@ -81,7 +81,7 @@ public class CalculusTasks extends ConsoleProgram {
 
         do{
             double res = 1;
-            int i = 0;
+            int i = 1;
             double sum = 0;
             double x = readDouble("Enter the value of x. It should be positive limited as: -0.77 <= x <= 0.77: ");
             while (-0.77 > x ||  x > 0.77){
@@ -92,7 +92,8 @@ public class CalculusTasks extends ConsoleProgram {
             println("The value of Recursion is: " + sumEx8R( res,  accuracy,  x, sum,  i));
         }while(readInt("Do you want to continue? press 1: ") != 1); // cos(x) algorithm cycle
     }
-    private double pythagorCalculus(int x, int y){
+
+    private double pythagorCalculus(int x, int y){ // this method calculate length of hypotenius
         return Math.sqrt(x * x + y * y);
     } // finds length of hypothenus
     private int min(int x, int min){ // finds min number of entered
@@ -167,8 +168,9 @@ public class CalculusTasks extends ConsoleProgram {
 
     private double sumEx8R(double res, double accuracy, double x, double sum, int i) {// finds cos(x) with precision = "accuracy"(Recursion)
         if (Math.abs(res) > accuracy){
-            return sumEx8R(res * (-(Math.pow(x, 2)/((2 * i) * (2 * i - 1 )))), accuracy, x, sum + res, i+1);
+            return sumEx8R(res * (-(Math.pow(x, 2)/((2 * i) * (2 * i - 1 )))), accuracy, x, sum + res, i + 1);
         }
-        return sum;
+        else
+            return sum + res;
     }
 }
