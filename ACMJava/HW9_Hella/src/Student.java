@@ -31,6 +31,4 @@ public class Student extends ConsoleProgram {
         StudentsConstructor student3 = new StudentsConstructor();
         println("Student fio is: " + student3.fio + ". Student mark is: " + student3.mark + ". Student course is: " + student3.course);
     }
-
-
 }

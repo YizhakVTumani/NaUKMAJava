@@ -143,7 +143,7 @@ public class HelloProgram extends ConsoleProgram {
         }
     }
     private void randomNumbersAvg(){
-        int sum = 0;
+        double sum = 0;
         int number = 0;
         for (int i = 0; i < 10; i ++){
             number = rgen.nextInt(1, 10);
@@ -210,8 +210,13 @@ public class HelloProgram extends ConsoleProgram {
             n = readInt("Enter numbers. To finish press 0: ");
             sum += n;
         }while(n != 0);
-        println("Avg is: " + sum/(quantity - 1));
-        println("Sum is: " + sum);
+        if (sum == 0){
+            println("Division by zero!");
+        }
+        else{
+            println("Avg is: " + sum/(quantity - 1));
+            println("Sum is: " + sum);
+        }
     }
     private int min(int x, int min){ // finds min number of entered
         min = Math.min(min, x);
@@ -225,16 +230,20 @@ public class HelloProgram extends ConsoleProgram {
     private void primeNumber(){
         boolean flag = false;
         int n = readInt("Enter your number: ");
-        for (int i = 2; i < n; i++){
-            if (n % i == 0){
-                flag = true;
+        if(n == 0){
+            println("Your number is 0!");
+        }
+        else {
+            for (int i = 2; i < n; i++) {
+                if (n % i == 0) {
+                    flag = true;
+                }
             }
-        }
-        if (flag){
-            println("Your number is NOT prime");
-        }
-        else{
-            println("Your number is prime");
+            if (flag) {
+                println("Your number is NOT prime");
+            } else {
+                println("Your number is prime");
+            }
         }
     }
     private void guessTheNumberGame(){
