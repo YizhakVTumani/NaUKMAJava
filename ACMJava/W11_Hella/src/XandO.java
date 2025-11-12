@@ -11,12 +11,14 @@ public class XandO extends GraphicsProgram {
 
     public void run(){
         this.setSize(WIDTH+15,HEIGHT+60);
-        DrawMap();
+
         addMouseListeners();
+        mainMenu();
 
         while(!gameEnded){
             checkForWin();
         }
+        resultScreen();
     }
 
     private void DrawMap(){
@@ -168,30 +170,30 @@ public class XandO extends GraphicsProgram {
         if(spot11 == spot12 && spot11 == spot13 && spot11 != 0){
             winnerLine = new GLine(0, HEIGHT/6, WIDTH, HEIGHT/6);
             if (spot11 == 1){
-
+                winner = 1;
             }
             else if (spot11 == 2){
-
+                winner = 2;
             }
             gameEnded = true;
         }
         else if(spot21 == spot22 && spot21 == spot23 && spot21 != 0){
             winnerLine = new GLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
             if (spot21 == 1){
-
+                winner = 1;
             }
             else if (spot21 == 2){
-
+                winner = 2;
             }
             gameEnded = true;
         }
         else if (spot31 == spot32 && spot31 == spot33 && spot31 != 0){
             winnerLine = new GLine(0, 5*HEIGHT/6, WIDTH, 5*HEIGHT/6);
             if (spot31 == 1){
-
+                winner = 1;
             }
             else if (spot31 == 2){
-
+                winner = 2;
             }
             gameEnded = true;
         }
@@ -200,30 +202,30 @@ public class XandO extends GraphicsProgram {
         else if (spot11 == spot21 && spot11 == spot31 && spot11 != 0){
             winnerLine = new GLine(WIDTH/6, 0, WIDTH/6, HEIGHT);
             if (spot11 == 1){
-
+                winner = 1;
             }
             else if (spot11 == 2){
-
+                winner = 2;
             }
             gameEnded = true;
         }
         else  if (spot12 == spot22 && spot12 == spot32 && spot12 != 0){
             winnerLine = new GLine(WIDTH/2, 0, WIDTH/2, HEIGHT);
             if (spot12 == 1){
-
+                winner = 1;
             }
             else if (spot12 == 2){
-
+                winner = 2;
             }
             gameEnded = true;
         }
         else if (spot13 == spot23 && spot23 == spot33 && spot13 != 0){
             winnerLine = new GLine(5*WIDTH/6, 0, 5*WIDTH/6, HEIGHT);
             if (spot13 == 1){
-
+                winner = 1;
             }
             else if (spot13 == 2){
-
+                winner = 2;
             }
             gameEnded = true;
         }
@@ -232,21 +234,24 @@ public class XandO extends GraphicsProgram {
         else if (spot11 == spot22 && spot11 == spot33 && spot11 != 0){
             winnerLine = new GLine(0, 0, WIDTH, HEIGHT);
             if (spot11 == 1){
-
+                winner = 1;
             }
             else if (spot11 == 2){
-
+                winner = 2;
             }
             gameEnded = true;
         }
         else if (spot31 == spot22 && spot22 == spot13 && spot13 != 0){
             winnerLine = new GLine(WIDTH, 0, 0, HEIGHT);
             if (spot31 == 1){
-
+                winner = 1;
             }
             else if (spot31 == 2){
-
+                winner = 2;
             }
+            gameEnded = true;
+        }
+        else if(spot11 != 0 && spot21 != 0 && spot12 != 0 && spot13 != 0 && spot22 !=0 && spot23 != 0 && spot31 != 0 && spot32 != 0 && spot33 != 0){
             gameEnded = true;
         }
 
@@ -256,6 +261,58 @@ public class XandO extends GraphicsProgram {
         }
     }
 
+    private void mainMenu() {
+        gameEnded = false;
+        int startFigure =0;
+        GRect mainMenuScreen = new GRect(0, 0, WIDTH, HEIGHT);
+        GRect mainMenuButtonCircles = new GRect(WIDTH/5, HEIGHT/3, WIDTH/5, HEIGHT/3);
+        GRect mainMenuButtonCrosses = new GRect(3*WIDTH/5, HEIGHT/3, WIDTH/5, HEIGHT/3);
+        GLabel mainMenuText;
+        mainMenuScreen.setFilled(true);
+        mainMenuScreen.setFillColor(Color.white);
+        add(mainMenuScreen);
+        add(mainMenuButtonCircles);
+        add(mainMenuButtonCrosses);
+        if(startFigure == 2){
+            step = 2;
+            DrawMap();
+        }
+        else{
+            DrawMap();
+        }
+        remove(mainMenuScreen);
+        remove(mainMenuButtonCircles);
+        remove(mainMenuButtonCrosses);
+
+    }
+
+
+    private void resultScreen(){
+        GRect resultScreen = new GRect(0, 0, WIDTH, HEIGHT);
+        GLabel resultScreenLine;
+        resultScreen.setFilled(true);
+        resultScreen.setFillColor(Color.white);
+        if (winner == 2){
+            add(resultScreen);
+            resultScreenLine= new GLabel("Circles WON!",WIDTH/2, HEIGHT/2);
+            add(resultScreenLine);
+        }
+        else if (winner == 1){
+            add(resultScreen);
+            resultScreenLine= new GLabel("Crosses WON!",WIDTH/2, HEIGHT/2);
+            add(resultScreenLine);
+        }
+        else {
+            add(resultScreen);
+            resultScreenLine= new GLabel("DRAW",WIDTH/2, HEIGHT/2);
+            add(resultScreenLine);
+        }
+        pause(500);
+        mainMenu();
+    }
+
+    private int winner = 0;
+
     private GLine winnerLine;
 
     private GLine line1;
@@ -263,7 +320,7 @@ public class XandO extends GraphicsProgram {
     private GOval oval1;
 
     // if the step counter = 1 -- turn of christ, if 2 -- turn of circle
-    private int step = 1;
+    public int step = 1;
 
     // if spot (row)(column) = 0 -- it's free, if 1 -- there is a christ, if 2 -- there is a circle
     private int spot11 = 0;

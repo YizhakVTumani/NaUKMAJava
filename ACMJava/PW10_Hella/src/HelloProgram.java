@@ -202,7 +202,7 @@ public class HelloProgram extends ConsoleProgram {
         }
     }
     private void avgAndSumOfEnteredNumbers(){
-        int sum = 0;
+        double sum = 0;
         int quantity = 0;
         int n;
         do {
