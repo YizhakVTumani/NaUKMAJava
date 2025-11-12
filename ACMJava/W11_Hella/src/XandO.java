@@ -5,6 +5,12 @@ import acm.util.RandomGenerator;
 import java.awt.*;
 import java.awt.event.*;
 
+//author: Hella Nikita
+//filename: XandO.java
+
+//написати гру в хрестики нулики на дошці розмірності 3*3 - Вимоги: в кінці гри візуально виділити лінію перемоги, виводиться хто переміг, можливість грати знову.
+
+
 public class XandO extends GraphicsProgram {
     private static final int  WIDTH = 600;
     private static final int HEIGHT = 600;
@@ -13,15 +19,16 @@ public class XandO extends GraphicsProgram {
         this.setSize(WIDTH+15,HEIGHT+60);
 
         addMouseListeners();
-        mainMenu();
+        DrawMap();
 
         while(!gameEnded){
             checkForWin();
         }
+        pause(1000);
         resultScreen();
     }
 
-    private void DrawMap(){
+    private void DrawMap(){ // draws a map
         GRect rect1 = new GRect(0,0,WIDTH/3,HEIGHT/3);
         GRect rect2 = new GRect(WIDTH/3,0,WIDTH/3,HEIGHT/3);
         GRect rect3 = new GRect(2*(WIDTH/3),0,WIDTH/3,HEIGHT/3);
@@ -44,126 +51,117 @@ public class XandO extends GraphicsProgram {
         add(rect9);
     }
 
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) { // checks the position of mouse and adds crosses or circles
         int x = e.getX();
         int y = e.getY();
-        if (!gameEnded) {
-            if (x < WIDTH / 3 && y < HEIGHT / 3) {
-                if (step == 1&& spot11 != 2 && spot11 != 1) {
-                    spot11 = 1;
-                    step++;
-                    line1 = new GLine(0, 0, WIDTH / 3, HEIGHT / 3);
-                    line2 = new GLine(WIDTH / 3, 0, 0, HEIGHT / 3);
-                } else if (step == 2&& spot11 != 2 && spot11 != 1) {
-                    spot11 = 2;
-                    step--;
-                    oval1 = new GOval(0, 0, WIDTH / 3, HEIGHT / 3);
-                }
-            }
-            else if (x > WIDTH / 3 && x < (2 * WIDTH) / 3 && y < HEIGHT / 3) {
-                if (step == 1&& spot12 != 2 && spot12 != 1) {
-                    spot12 = 1;
-                    step++;
-                    line1 = new GLine(WIDTH / 3, 0, 2 * WIDTH / 3, HEIGHT / 3);
-                    line2 = new GLine(2 * WIDTH / 3, 0, WIDTH / 3, HEIGHT / 3);
-                } else if (step == 2&& spot12 != 2 && spot12 != 1) {
-                    spot12 = 2;
-                    step--;
-                    oval1 = new GOval(WIDTH / 3, 0, WIDTH / 3, HEIGHT / 3);
-                }
-            }
-            else if (x > (2 * WIDTH) / 3 && y < HEIGHT / 3) {
-                if (step == 1&& spot13 != 2 && spot13 != 1) {
-                    spot13 = 1;
-                    step++;
-                    line1 = new GLine(2 * WIDTH / 3, 0, WIDTH, HEIGHT / 3);
-                    line2 = new GLine(WIDTH, 0, 2 * WIDTH / 3, HEIGHT / 3);
-                } else if (step == 2&& spot13 != 2 && spot13 != 1) {
-                    spot13 = 2;
-                    step--;
-                    oval1 = new GOval(2 * WIDTH / 3, 0, WIDTH / 3, HEIGHT / 3);
 
-                }
-            }
+            if (!gameEnded) {
+                if (x < WIDTH / 3 && y < HEIGHT / 3) {
+                    if (step == 1 && spot11 != 2 && spot11 != 1) {
+                        spot11 = 1;
+                        step++;
+                        line1 = new GLine(0, 0, WIDTH / 3, HEIGHT / 3);
+                        line2 = new GLine(WIDTH / 3, 0, 0, HEIGHT / 3);
+                    } else if (step == 2 && spot11 != 2 && spot11 != 1) {
+                        spot11 = 2;
+                        step--;
+                        oval1 = new GOval(0, 0, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x > WIDTH / 3 && x < (2 * WIDTH) / 3 && y < HEIGHT / 3) {
+                    if (step == 1 && spot12 != 2 && spot12 != 1) {
+                        spot12 = 1;
+                        step++;
+                        line1 = new GLine(WIDTH / 3, 0, 2 * WIDTH / 3, HEIGHT / 3);
+                        line2 = new GLine(2 * WIDTH / 3, 0, WIDTH / 3, HEIGHT / 3);
+                    } else if (step == 2 && spot12 != 2 && spot12 != 1) {
+                        spot12 = 2;
+                        step--;
+                        oval1 = new GOval(WIDTH / 3, 0, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x > (2 * WIDTH) / 3 && y < HEIGHT / 3) {
+                    if (step == 1 && spot13 != 2 && spot13 != 1) {
+                        spot13 = 1;
+                        step++;
+                        line1 = new GLine(2 * WIDTH / 3, 0, WIDTH, HEIGHT / 3);
+                        line2 = new GLine(WIDTH, 0, 2 * WIDTH / 3, HEIGHT / 3);
+                    } else if (step == 2 && spot13 != 2 && spot13 != 1) {
+                        spot13 = 2;
+                        step--;
+                        oval1 = new GOval(2 * WIDTH / 3, 0, WIDTH / 3, HEIGHT / 3);
 
-            else if (x < WIDTH / 3 && y > HEIGHT / 3 && y < (2 * HEIGHT) / 3) {
-                if (step == 1 && spot21 != 2 && spot21 != 1) {
-                    spot21 = 1;
-                    step++;
-                    line1 = new GLine(0, HEIGHT / 3, WIDTH / 3, 2 * HEIGHT / 3);
-                    line2 = new GLine(WIDTH / 3, HEIGHT / 3, 0, 2 * HEIGHT / 3);
-                } else if (step == 2 && spot21 != 2 && spot21 != 1) {
-                    spot21 = 2;
-                    step--;
-                    oval1 = new GOval(0, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x < WIDTH / 3 && y > HEIGHT / 3 && y < (2 * HEIGHT) / 3) {
+                    if (step == 1 && spot21 != 2 && spot21 != 1) {
+                        spot21 = 1;
+                        step++;
+                        line1 = new GLine(0, HEIGHT / 3, WIDTH / 3, 2 * HEIGHT / 3);
+                        line2 = new GLine(WIDTH / 3, HEIGHT / 3, 0, 2 * HEIGHT / 3);
+                    } else if (step == 2 && spot21 != 2 && spot21 != 1) {
+                        spot21 = 2;
+                        step--;
+                        oval1 = new GOval(0, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x > WIDTH / 3 && x < (2 * WIDTH) / 3 && y > HEIGHT / 3 && y < (2 * HEIGHT) / 3) {
+                    if (step == 1 && spot22 != 2 && spot22 != 1) {
+                        spot22 = 1;
+                        step++;
+                        line1 = new GLine(WIDTH / 3, HEIGHT / 3, 2 * WIDTH / 3, 2 * HEIGHT / 3);
+                        line2 = new GLine(2 * WIDTH / 3, HEIGHT / 3, WIDTH / 3, 2 * HEIGHT / 3);
+                    } else if (step == 2 && spot22 != 2 && spot22 != 1) {
+                        spot22 = 2;
+                        step--;
+                        oval1 = new GOval(WIDTH / 3, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x > (2 * WIDTH) / 3 && y > HEIGHT / 3 && y < (2 * HEIGHT) / 3) {
+                    if (step == 1 && spot23 != 2 && spot23 != 1) {
+                        spot23 = 1;
+                        step++;
+                        line1 = new GLine(2 * WIDTH / 3, HEIGHT / 3, WIDTH, 2 * HEIGHT / 3);
+                        line2 = new GLine(WIDTH, HEIGHT / 3, 2 * WIDTH / 3, 2 * HEIGHT / 3);
+                    } else if (step == 2 && spot23 != 2 && spot23 != 1) {
+                        spot23 = 2;
+                        step--;
+                        oval1 = new GOval(2 * WIDTH / 3, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x < WIDTH / 3 && y > (2 * HEIGHT) / 3) {
+                    if (step == 1 && spot31 != 2 && spot31 != 1) {
+                        spot31 = 1;
+                        step++;
+                        line1 = new GLine(0, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT);
+                        line2 = new GLine(WIDTH / 3, 2 * HEIGHT / 3, 0, HEIGHT);
+                    } else if (step == 2 && spot31 != 2 && spot31 != 1) {
+                        spot31 = 2;
+                        step--;
+                        oval1 = new GOval(0, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x > WIDTH / 3 && x < (2 * WIDTH) / 3 && y > (2 * HEIGHT) / 3) {
+                    if (step == 1 && spot32 != 2 && spot32 != 1) {
+                        spot32 = 1;
+                        step++;
+                        line1 = new GLine(WIDTH / 3, 2 * HEIGHT / 3, 2 * WIDTH / 3, HEIGHT);
+                        line2 = new GLine(2 * WIDTH / 3, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT);
+                    } else if (step == 2 && spot32 != 2 && spot32 != 1) {
+                        spot32 = 2;
+                        step--;
+                        oval1 = new GOval(WIDTH / 3, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+                    }
+                } else if (x > (2 * WIDTH) / 3 && y > (2 * HEIGHT) / 3) {
+                    if (step == 1 && spot33 != 2 && spot33 != 1) {
+                        spot33 = 1;
+                        step++;
+                        line1 = new GLine(2 * WIDTH / 3, 2 * HEIGHT / 3, WIDTH, HEIGHT);
+                        line2 = new GLine(WIDTH, 2 * HEIGHT / 3, 2 * WIDTH / 3, HEIGHT);
+                    } else if (step == 2 && spot33 != 2 && spot33 != 1) {
+                        spot33 = 2;
+                        step--;
+                        oval1 = new GOval(2 * WIDTH / 3, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+                    }
                 }
-            }
-            else if (x > WIDTH / 3 && x < (2 * WIDTH) / 3 && y > HEIGHT / 3 && y < (2 * HEIGHT) / 3) {
-                if (step == 1 && spot22 != 2 && spot22 != 1) {
-                    spot22 = 1;
-                    step++;
-                    line1 = new GLine(WIDTH / 3, HEIGHT / 3, 2 * WIDTH / 3, 2 * HEIGHT / 3);
-                    line2 = new GLine(2 * WIDTH / 3, HEIGHT / 3, WIDTH / 3, 2 * HEIGHT / 3);
-                } else if (step == 2 && spot22 != 2 && spot22 != 1) {
-                    spot22 = 2;
-                    step--;
-                    oval1 = new GOval(WIDTH / 3, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-                }
-            }
-            else if (x > (2 * WIDTH) / 3 && y > HEIGHT / 3 && y < (2 * HEIGHT) / 3) {
-                if (step == 1 && spot23 != 2 && spot23 != 1) {
-                    spot23 = 1;
-                    step++;
-                    line1 = new GLine(2 * WIDTH / 3, HEIGHT / 3, WIDTH, 2 * HEIGHT / 3);
-                    line2 = new GLine(WIDTH, HEIGHT / 3, 2 * WIDTH / 3, 2 * HEIGHT / 3);
-                } else if (step == 2 && spot23 != 2 && spot23 != 1) {
-                    spot23 = 2;
-                    step--;
-                    oval1 = new GOval(2 * WIDTH / 3, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-                }
-            }
 
-            else if (x < WIDTH / 3 && y > (2 * HEIGHT) / 3) {
-                if (step == 1 && spot31 != 2 && spot31 != 1) {
-                    spot31 = 1;
-                    step++;
-                    line1 = new GLine(0, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT);
-                    line2 = new GLine(WIDTH / 3, 2 * HEIGHT / 3, 0, HEIGHT);
-                } else if (step == 2 && spot31 != 2 && spot31 != 1) {
-                    spot31 = 2;
-                    step--;
-                    oval1 = new GOval(0, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-                }
+                add(line1);
+                add(line2);
+                add(oval1);
             }
-            else if (x > WIDTH / 3 && x < (2 * WIDTH) / 3 && y > (2 * HEIGHT) / 3) {
-                if (step == 1 && spot32 != 2 && spot32 != 1) {
-                    spot32 = 1;
-                    step++;
-                    line1 = new GLine(WIDTH / 3, 2 * HEIGHT / 3, 2 * WIDTH / 3, HEIGHT);
-                    line2 = new GLine(2 * WIDTH / 3, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT);
-                } else if (step == 2 && spot32 != 2 && spot32 != 1) {
-                    spot32 = 2;
-                    step--;
-                    oval1 = new GOval(WIDTH / 3, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-                }
-            }
-            else if (x > (2 * WIDTH) / 3 && y > (2 * HEIGHT) / 3) {
-                if (step == 1 && spot33 != 2 && spot33 != 1) {
-                    spot33 = 1;
-                    step++;
-                    line1 = new GLine(2 * WIDTH / 3, 2 * HEIGHT / 3, WIDTH, HEIGHT);
-                    line2 = new GLine(WIDTH, 2 * HEIGHT / 3, 2 * WIDTH / 3, HEIGHT);
-                } else if (step == 2 && spot33 != 2 && spot33 != 1) {
-                    spot33 = 2;
-                    step--;
-                    oval1 = new GOval(2 * WIDTH / 3, 2 * HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
-                }
-            }
-
-            add(line1);
-            add(line2);
-            add(oval1);
-        }
     }
 
     private void checkForWin(){
@@ -259,32 +257,7 @@ public class XandO extends GraphicsProgram {
             winnerLine.setColor(Color.RED);
             add(winnerLine);
         }
-    }
-
-    private void mainMenu() {
-        gameEnded = false;
-        int startFigure =0;
-        GRect mainMenuScreen = new GRect(0, 0, WIDTH, HEIGHT);
-        GRect mainMenuButtonCircles = new GRect(WIDTH/5, HEIGHT/3, WIDTH/5, HEIGHT/3);
-        GRect mainMenuButtonCrosses = new GRect(3*WIDTH/5, HEIGHT/3, WIDTH/5, HEIGHT/3);
-        GLabel mainMenuText;
-        mainMenuScreen.setFilled(true);
-        mainMenuScreen.setFillColor(Color.white);
-        add(mainMenuScreen);
-        add(mainMenuButtonCircles);
-        add(mainMenuButtonCrosses);
-        if(startFigure == 2){
-            step = 2;
-            DrawMap();
-        }
-        else{
-            DrawMap();
-        }
-        remove(mainMenuScreen);
-        remove(mainMenuButtonCircles);
-        remove(mainMenuButtonCrosses);
-
-    }
+    } // checks if conditions for win are got
 
 
     private void resultScreen(){
@@ -308,8 +281,9 @@ public class XandO extends GraphicsProgram {
             add(resultScreenLine);
         }
         pause(500);
-        mainMenu();
-    }
+    } // screen with result
+
+
 
     private int winner = 0;
 
