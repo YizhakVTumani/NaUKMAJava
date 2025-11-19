@@ -281,10 +281,10 @@ public class PlaneGame extends GraphicsProgram {
                     tower = null;
                     plane = null;
                     planeCollided = true;
-                    String file = "C:\\JavaUni\\NaUKMAJava\\ACMJava\\W11_Hella\\images\\explosion-fx-343683.wav";
-                    soundClip = new SoundClip(file);
-                    soundClip.setVolume(2);
-                    soundClip.play();
+//                    String file = "C:\\JavaUni\\NaUKMAJava\\ACMJava\\W11_Hella\\images\\explosion-fx-343683.wav";
+//                    soundClip = new SoundClip(file);
+//                    soundClip.setVolume(2);
+//                    soundClip.play();
                 }
             }
             if (tower2 != null){
@@ -380,10 +380,11 @@ public class PlaneGame extends GraphicsProgram {
         else {
             add(fire, bomb.getX() - RADIUS_OF_DESTRUCTION/2, bomb.getY());
         }
-        String file = "C:\\JavaUni\\NaUKMAJava\\ACMJava\\W11_Hella\\images\\explosion-fx-343683.wav";
-        soundClip = new SoundClip(file);
-        soundClip.setVolume(2);
-        soundClip.play();
+//        String file = "C:\\JavaUni\\NaUKMAJava\\ACMJava\\W11_Hella\\images\\explosion-fx-343683.wav";
+//        String file1 = "explosion-fx-343683.wav";
+//        soundClip = new SoundClip(file1);
+//        soundClip.setVolume(2);
+//        soundClip.play();
      } // simulates explosion of the bomb
 
     RandomGenerator rnd = new RandomGenerator();

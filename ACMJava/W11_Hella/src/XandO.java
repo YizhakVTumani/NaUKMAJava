@@ -158,6 +158,7 @@ public class XandO extends GraphicsProgram {
                     }
                 }
 
+
                 add(line1);
                 add(line2);
                 add(oval1);
@@ -253,7 +254,7 @@ public class XandO extends GraphicsProgram {
             gameEnded = true;
         }
 
-        if(gameEnded){
+        if(gameEnded && winner != 0){
             winnerLine.setColor(Color.RED);
             add(winnerLine);
         }

@@ -90,6 +90,7 @@ public class CalculusTasks extends ConsoleProgram {
             double accuracy = readDouble("Enter the value of accuracy: ");
             println("The value is: " + sumEx8(res, accuracy,  x));
             println("The value of Recursion is: " + sumEx8R( res,  accuracy,  x, sum,  i));
+            println(Math.cos(x));
         }while(readInt("Do you want to continue? press 1: ") != 1); // cos(x) algorithm cycle
     }
 
