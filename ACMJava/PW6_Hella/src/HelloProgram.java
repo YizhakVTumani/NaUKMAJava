@@ -30,7 +30,7 @@ public class HelloProgram extends ConsoleProgram {
             println("Note: if the value is too high, it could give wrong values");
             int a = readInt("Value of a: "), b = readInt("Value of b: "), c = readInt("Value of c: "), d = readInt("Value of d: "), x = readInt("Value of x: ");
             maxNumberOfFour(a, b, c, d);
-            numberInPowerOfFour(a);
+            numberInPowerOfFour(x);
             findYInSquareFunction(a, b, c, x);
         } while (readInt("If you want to continue type 0, else another value (1-9): ") == 0);
 
@@ -79,7 +79,7 @@ public class HelloProgram extends ConsoleProgram {
         else println("Value of Y is: None, y < 0");
     }
     private void findRootsOfSquaredFunction(int a, int b, int c, int y){ // finds roots of square function
-        if (a == 0){
+        if (a == 0 && b!= 0){
             int value = (c - y)/b;
             println("Value of X is: " + value);
         }

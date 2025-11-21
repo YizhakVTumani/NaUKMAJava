@@ -15,11 +15,11 @@ import java.awt.*;
 
 public class HelloProgram extends GraphicsProgram {
 
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 500;
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 400;
 
-    private static final double QUANTITYOFTHESQUARESBYX = 15;
-    private static final double QUANTITYOFTHESQUARESBYY = 15;
+    private static final double QUANTITYOFTHESQUARESBYX = 1;
+    private static final double QUANTITYOFTHESQUARESBYY = 1;
 
     public void run() {
         int firstRowCounter = 0;

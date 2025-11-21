@@ -16,14 +16,14 @@ import java.awt.*;
 
 public class HelloProgram1 extends GraphicsProgram {
 
-    private static final double numberOfTheBeeperInTheStart = 1;
-    private static final double beepersAddingNumber = 3;
+    private static final double numberOfTheBeeperInTheStart = 9;
+    private static final double beepersAddingNumber = -3;
 
-    private static final int gapX = 50;
-    private static final int gapY = 50;
+    private static final int gapX = 5;
+    private static final int gapY = 5;
 
-    private static final int Width = 500;
-    private static final int Height = 500;
+    private static final int Width = 750;
+    private static final int Height = 400;
 
     public void run() {
         setSize(Width, Height + 50);

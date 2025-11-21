@@ -19,11 +19,11 @@ import java.util.random.*;
 public class HelloProgram extends ConsoleProgram {
 
     public void run() {
-//        String str = readLine("Please enter your text: ");
-//        if (str == null || str.equals("")) {
-//            str = readLine("Please enter your text: ");
-//        }
-        String str = "Rdhfjf   DGFFHGDDF!!!##  f555     12345     23456.345     98765,678   345d46  dfg456fgh   2345.2345.4567    456,456,567,567   ASD345   ZXC!   @#$%    !@#$%^ ";
+        String str = readLine("Please enter your text: ");
+        if (str == null || str.equals("")) {
+            str = readLine("Please enter your text: ");
+        }
+//        String str = "Rdhfjf   DGFFHGDDF!!!##  f555     12345     23456.345     98765,678   345d46  dfg456fgh   2345.2345.4567    456,456,567,567   ASD345   ZXC!   @#$%    !@#$%^ ";
         quantityOfWords(str);
         quantityOfNumbers(str);
         strNoDoubleSpaces(str);
