@@ -3,32 +3,22 @@ import acm.program.*;
 import acm.util.ErrorException;
 
 import java.awt.*;
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Random;
+import java.util.random.*;
 
 //Author: Hella Nikita
 //File: HelloProgram.java
 
-//Великі числа при друку прийнято розділяти комами. Так наприклад число один мільйон при друку має виглядати - 1,000,000. Напишіть програму, що на вхід приймає число (саме число, INT), а на вихід виводить число в наведеному вище форматі. Числа мають зчитуватися до тих пір, поки користувач не введе 0. String.valueOf використовувати не можна.
-//Написати клас який реалізує метод, що видаляє заданий символ з стрічки і повертає результат:
-//public String removeAllOccurences(String str, char ch);
-//Написати програму, що читає текстову інформацію з файлу і виводить на екран
-//Написати програму, що шукає в тексті файлу задану фразу і виводить інформацію про її наявність та кількість.
 
 public class HelloProgram extends ConsoleProgram {
 
     public void run() {
-        do {
-            int number = readInt("Please enter a number: ");
-            intToString(number);
-        } while (readInt("to repeat press 1: ") == 1);
 
-        do {
-            String str = readLine("Please enter a string: ");
-            String strCh = readLine("Please enter a char: ");
-            char ch = strCh.charAt(0);
-            println("Res string is: " + removeAllOccurences(str, ch));
-        } while (readInt("to repeat press 1: ") == 1);
 
         BufferedReader myR = fileToString("Print your name of the file: ");
         String s;
@@ -50,11 +40,10 @@ public class HelloProgram extends ConsoleProgram {
         try {
             while (true) {
                 s = myS.readLine();
-                text = text + s;
+                text = text + '\n' + s;
                 if (s == null) break;
-//                findSubstring(s);
             }
-            findSubstring(text);
+            println(removeAllOccurences(text));
             myS.close();
         } catch (IOException e) {
             throw new ErrorException(e);
@@ -63,28 +52,36 @@ public class HelloProgram extends ConsoleProgram {
     }
 
 
-    private void intToString(int number) {
+    public String removeAllOccurences(String text) {
+        String find = readLine("Enter a line you want to be replaced: ");
+        String replace = readLine("Enter a line you want to replace: ");
         String res = "";
-        String num = " " + number;
-        for (int i = 1; i < num.length(); i++) {
-            if (num.charAt(i - 1) != ' ' && num.charAt(i - 1) != '-' && (num.length() - i) % 3 == 0) {
-                res = res + ',';
+        for (int i = 0; i < text.length(); i++) {
+            int startOfTheWord = 0;
+            int f = 0;
+            boolean found = false;
+            if (text.charAt(i) == find.charAt(0)) {
+                startOfTheWord = i - 1;
+                while (i < text.length() && f < find.length() && text.charAt(i) == find.charAt(f)) {
+                    f++;
+                    i++;
+                    if (find.length() == i - startOfTheWord) {
+                        res = res + replace + " ";
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    i = startOfTheWord + 1;
+                    res = res + text.charAt(i);
+                }
             }
-            res = res + num.charAt(i);
-        }
-        println(res);
-    } // creates coma between numbers
-
-
-    public String removeAllOccurences(String str, char ch) {
-        String res = "";
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) != ch) {
-                res = res + str.charAt(i);
+            else{
+                res = res + text.charAt(i);
             }
         }
         return res;
-    } // removes all occurences of the char
+    }
 
 
     private BufferedReader fileToString(String prompt) {
