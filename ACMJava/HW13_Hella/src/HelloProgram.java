@@ -3,10 +3,7 @@ import acm.program.*;
 import acm.util.ErrorException;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Locale;
 import java.util.Random;
 import java.util.random.*;
@@ -14,40 +11,116 @@ import java.util.random.*;
 //Author: Hella Nikita
 //File: HelloProgram.java
 
+//Написати програму, що замінює підстрічку в файлі заданою стрічкою. Всі входження.
+//Написати програму, що копіює зміст текстового файлу в інший з розширення ".bak". Назва нового файлу вводиться користувачем.
+//Написати програму, що відкриває файл на читання і формує два інших файли. Перший файл формується з непарних стрічок початкового файлу, а інший з парних.
+//Здійснити шифрування файлу використовуючи зсув символів. Зсув вводиться користувачем.
+//Здійснити розшифрування файлу зашифрованого вище
 
 public class HelloProgram extends ConsoleProgram {
 
     public void run() {
-
-
-        BufferedReader myR = fileToString("Print your name of the file: ");
         String s;
-        try {
-            while (true) {
-                s = myR.readLine();
-                if (s == null) break;
-                println(s);
-            }
-            myR.close();
-        } catch (IOException e) {
-            throw new ErrorException(e);
-        }
-
-
-
         String text = "";
         BufferedReader myS = fileToString("Print your name of the file: ");
         try {
             while (true) {
                 s = myS.readLine();
-                text = text + '\n' + s;
+
                 if (s == null) break;
+                text = text + '\n' + s;
             }
             println(removeAllOccurences(text));
             myS.close();
         } catch (IOException e) {
             throw new ErrorException(e);
-        }
+        } // замінює підстрічку в файлі заданою стрічкою
+
+
+        BufferedReader myR = fileToString("Print your name of the file: ");
+        try{
+            PrintWriter wr = new PrintWriter(new FileWriter(readLine("Enter your new name: ") + ".bak"));
+            while (true){
+                s = myR.readLine();
+                if (s==null) break;
+                println(s);
+                wr.println(s);
+            }
+            myR.close();
+            wr.close();
+        }catch (IOException e){
+            throw new ErrorException(e);
+        } // копіює зміст текстового файлу в інший з розширення ".bak"
+
+
+        BufferedReader myF = fileToString("Print your name of the file: ");
+        int i = 2;
+        try{
+            PrintWriter wr = new PrintWriter(new FileWriter(readLine("Enter your new name: ") + ".txt"));
+            PrintWriter wr1 = new PrintWriter(new FileWriter(readLine("Enter your new name: ") + ".txt"));
+            while (true){
+                s = myF.readLine();
+                if (s==null) break;
+                if(i % 2 == 0){
+                    wr.println(s);
+                }
+                else{
+                    wr1.println(s);
+                }
+                i++;
+            }
+            myF.close();
+            wr.close();
+            wr1.close();
+        }catch (IOException e){
+            throw new ErrorException(e);
+        } // відкриває файл на читання і формує два інших файли
+
+
+        BufferedReader myT = fileToString("Print your name of the file: ");
+        int zsuv = readInt("Enter your zsuv: ");
+        try{
+            PrintWriter wr = new PrintWriter(new FileWriter(readLine("Enter your new name: ") + "chifred.txt"));
+            while (true){
+                String chifred = "";
+                s = myT.readLine();
+                if (s==null) break;
+                for (int j = 0; j < s.length(); j++){
+
+                    char ch = (char) (s.charAt(j) + zsuv);
+                    while (ch >= 127){
+                        ch = (char) (ch - 127);
+                    }
+                    chifred = chifred + ch + " ";
+                }
+                wr.println(chifred);
+            }
+            myT.close();
+            wr.close();
+        }catch (IOException e){
+            throw new ErrorException(e);
+        } // шифрування файлу використовуючи зсув символів
+
+        BufferedReader myO = fileToString("Print your name of the file: ");
+        try{
+            PrintWriter wr = new PrintWriter(new FileWriter(readLine("Enter your new name: ") + "UNchifred.txt"));
+            while (true){
+                String unChifred = "";
+                s = myO.readLine();
+                if (s==null) break;
+                for (int j = 0; j < s.length(); j++){
+                    if (s.charAt(j) != ' '){
+                        char ch = (char) (s.charAt(j) - zsuv);
+                        unChifred = unChifred + ch + " ";
+                    }
+                }
+                wr.println(unChifred);
+            }
+            myO.close();
+            wr.close();
+        }catch (IOException e){
+            throw new ErrorException(e);
+        } // розшифрування файлу
 
     }
 
@@ -83,14 +156,13 @@ public class HelloProgram extends ConsoleProgram {
         return res;
     }
 
-
     private BufferedReader fileToString(String prompt) {
 
         BufferedReader rd = null;
         while (rd == null) {
             try {
-//                String name = readLine(prompt);
-                String name = "file.txt";
+                String name = readLine(prompt);
+//                String name = "file.txt";
                 rd = new BufferedReader(new FileReader(name));
             } catch (FileNotFoundException e) {
                 println("Exeption occurred while trying to open the file.");
@@ -103,26 +175,5 @@ public class HelloProgram extends ConsoleProgram {
         return rd;
     } // prints the text of the file
 
-    private void findSubstring(String s) {
-        int counterOfOccurences = 0;
-        String findSub = readLine("Enter a string: ");
-        while (findSub.isEmpty()) {
-            findSub = readLine("Enter a string: ");
-        }
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == findSub.charAt(0)) {
-                int f = 0;
-                int startOfTheWord = i;
-                while (i < s.length() && f < findSub.length() && s.charAt(i) == findSub.charAt(f)) {
-                    f++;
-                    i++;
-                    if (findSub.length() == i-startOfTheWord) {
-                        counterOfOccurences++;
-                        break;
-                    }
-                }
-            }
-        }
-        println("You`ve got " + counterOfOccurences + " occurrences of this line;");
-    } // counts occurrences of the substring
+
 }
