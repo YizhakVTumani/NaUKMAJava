@@ -63,6 +63,7 @@ public class HelloProgram extends ConsoleProgram {
     }
 
 
+
     private void intToString(int number) {
         String res = "";
         String num = " " + number;
@@ -75,7 +76,6 @@ public class HelloProgram extends ConsoleProgram {
         println(res);
     } // creates coma between numbers
 
-
     public String removeAllOccurences(String str, char ch) {
         String res = "";
         for (int i = 0; i < str.length(); i++) {
@@ -85,7 +85,6 @@ public class HelloProgram extends ConsoleProgram {
         }
         return res;
     } // removes all occurences of the char
-
 
     private BufferedReader fileToString(String prompt) {
 
@@ -97,7 +96,7 @@ public class HelloProgram extends ConsoleProgram {
                 rd = new BufferedReader(new FileReader(name));
             } catch (FileNotFoundException e) {
                 println("Exeption occurred while trying to open the file.");
-                //e.printStackTrace();
+//                e.printStackTrace();
 
             } catch (IOException e) {
                 e.printStackTrace();
