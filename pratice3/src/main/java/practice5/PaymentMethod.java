@@ -1,4 +1,4 @@
-package practice_5;
+package practice5;
 
 interface PaymentMethod {
     void name();
