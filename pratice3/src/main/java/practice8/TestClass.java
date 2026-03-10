@@ -16,5 +16,8 @@ public class TestClass {
         Student s1 = new Student("123", "sad", "sad");
         StudentRegistry.addStudent(s1.getId(), s1.getName(), s1.getEmail());
         assertEquals(null, StudentRegistry.containsEmail("sad"));
+
+
+
     }
 }
