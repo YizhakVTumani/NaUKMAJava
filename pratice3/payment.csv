@@ -1,0 +1,11 @@
+id,email,status,amountCents
+txn_001,john@example.com,NEW,5000
+txn_002,alice@example.com,PAID,12500
+
+txn_003, bob@example.com , FAILED , 0
+txn_004,charlie@example.com,PAID
+txn_005,dave@example.com,PENDING,4000
+txn_006,eve@example.com,NEW,four_hundred
+
+txn_007,frank@example.com,paid,750
+txn, paid
