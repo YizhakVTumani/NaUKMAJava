@@ -19,11 +19,9 @@ class TicketQueue {
 
 class TicketProducer implements Runnable {
     private final TicketQueue queue;
-    private final int consumerCount;
 
-    public TicketProducer(TicketQueue queue, int consumerCount) {
+    public TicketProducer(TicketQueue queue) {
         this.queue = queue;
-        this.consumerCount = consumerCount;
     }
 
     @Override
@@ -75,9 +73,8 @@ public class Task4 {
     public static void main(String[] args) throws InterruptedException {
         TicketQueue queue = new TicketQueue();
         ConcurrentHashMap<String, Integer> stats = new ConcurrentHashMap<>();
-        int numberOfConsumers = 2;
 
-        Thread producer = new Thread(new TicketProducer(queue, numberOfConsumers), "Producer");
+        Thread producer = new Thread(new TicketProducer(queue), "Producer");
         Thread consumer1 = new Thread(new TicketConsumer(queue, stats), "Consumer-1");
         Thread consumer2 = new Thread(new TicketConsumer(queue, stats), "Consumer-2");
 
